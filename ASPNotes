@@ -1,0 +1,50 @@
+## Setup
+
+Visual studio
+Sql Server
+Postman
+
+Your code doesn't require static main void in C# 9. You can straight away write any piece of code. That will be complied into main method by the complier itself. Optinally you can write it.
+
+A WebApplication Builder will loads the configurations, enviornment and services.
+
+ASP.NET Core applications require a server in order to receive and send the response.
+
+- Kestrel
+  Is the default crossplatform http server for ASP.NET Core applications.
+  It acts as both developement server as well as real application server which is able to recieve the request from real internet.
+
+However most of the cases in real world you will use it for development and application server only and in Production you will be using reverse proxy servers.
+
+Reverse Proxy Servers: IIS, Nginx, Apache
+
+The Kestrel prepares an HTTPContext Object(which contains the details off the request) and sends it to the Application Code. So that the application code can receive that context and process based on that and provides the response out back to the Kestrel. Then the Kestrel sends back the response to the client.
+
+But Kestrel does'nt support some of the advance features that are required on the internet these days. For Example:
+Load Balancing,
+URL Rewriting
+
+These are by default not supported by kestrel. But this is not a problem.
+Because we can use Reverse proxy server.
+
+In Production applications we prefer Reverse proxy servers for its advanced features.
+
+## launchSettings.json
+
+under properties you will find launchSettings.json.
+Collection of key value pair.
+
+By Default you have two profiles configured for your project.
+Profiles is a collection of settings which enables a particular server to run our application when you start the project.
+
+Enviornment Varaibles are kept in launchSettings.json.
+And there are other properties as well.
+You can choose which server you want to use, using property "commandName".
+Port Number can be between: 1024 - 65535
+
+Benefits of IIS express is that it is light weight version of IIS.
+Both IIS and IIS Express support multiple features which are not supported by Kestrel.
+
+Ngnix is very popular for Reverse proxy and is hosted on linux server.
+
+##
