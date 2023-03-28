@@ -47,4 +47,57 @@ Both IIS and IIS Express support multiple features which are not supported by Ke
 
 Ngnix is very popular for Reverse proxy and is hosted on linux server.
 
-##
+---
+
+## Module 3 HTTP
+
+All websites through internet follow HTTP protocols
+HTTP: Hyper Text Transfer Protocol
+HTTP is an application protocol that defines a set of rules to send request and from the browser to the server and send response from the server to the browser. It is like question and answer.
+All the websites over the internet use HTTP Protocol with or without SSL( that is Security Socket Layer).
+HTTP protocols with security a security layer is know as HTTPS.
+
+HTTP is the default protocol in all the browsers. Thats why it is generally hidden.
+You can also see the network request in Networking tools.
+
+## HTTP Response
+
+This is what kestrel sends in response headers when it recives a HTTP Request.
+
+HTTP/1.1 200 OK <!-- Start Line The HTTP version number is (1.1). Status code is 200. Status description 'OK'-->
+Content-Type: text/plain; charset=utf-8 <!--HTTP Headers Key: Value pair-->
+Date: Tue, 28 Mar 2023 15:17:19 GMT <!--HTTP Headers Key: Value pair-->
+Server: Kestrel
+Transfer-Encoding: chunked
+
+Based on the above format we can understand the structure of our HTTP Response.
+
+<!--Start Line-->
+<!-- HTTP Headers -->
+<!-- HTTP Headers -->
+
+<!-- Response Body -->
+
+## HTTP Status Codes
+
+| Status Type | Description   | Status Code | Name                  |
+| ----------- | ------------- | ----------- | --------------------- |
+| 1XX         | Informational | 101         | Switching Protocols   |
+| 2XX         | Success       | 200         | OK                    |
+| 3XX         | Redirection   | 302         | Found                 |
+|             |               | 304         | Not Modified          |
+| 4XX         | Client Error  | 400         | Bad Request           |
+|             |               | 401         | Unauthorised          |
+|             |               | 404         | Not Found             |
+| 5XX         | Server Error  | 500         | Internal Server Error |
+
+- Switching Protocol: For example we are switching from HTTP to HTTPS.
+- Success: If the process complete successfully.
+  Found: Indicates the redirection from one URL to another URL.
+- Not Modified: That is the file is already available on browser cache such as image or html file or css file, so the browser can use the same file from the cache, it generally happens for static files such as images.Loaded from cached memory on the browser.
+- Bad Request: That is some of the part is not included in the request or it is missing some important information.
+- Unauthorized: This is authorization issue. That means any one of the user credentials is incorrect.
+- Not Found: If you enter any incorrect URL it is represented as Not Found.
+- Server Error: Server side runtime error. It is 500 Internal server error.
+
+### How can you send this status code from your server side code?
