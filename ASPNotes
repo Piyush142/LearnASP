@@ -4,9 +4,9 @@ Visual studio
 Sql Server
 Postman
 
-Your code doesn't require static main void in C# 9. You can straight away write any piece of code. That will be complied into main method by the complier itself. Optinally you can write it.
+Your code doesn't require static main void in C# 9. You can straight-away write any piece of code. That will be complied into main method by the complier itself. Optinally you can write it.
 
-A WebApplication Builder will loads the configurations, enviornment and services.
+A WebApplication Builder will load the configurations, enviornment and services.
 
 ASP.NET Core applications require a server in order to receive and send the response.
 
@@ -18,7 +18,7 @@ However most of the cases in real world you will use it for development and appl
 
 Reverse Proxy Servers: IIS, Nginx, Apache
 
-The Kestrel prepares an HTTPContext Object(which contains the details off the request) and sends it to the Application Code. So that the application code can receive that context and process based on that and provides the response out back to the Kestrel. Then the Kestrel sends back the response to the client.
+The Kestrel prepares an HTTPContext Object(which contains the details of the request) and sends it to the Application Code. So that the application code can receive that context and process based on that and provides the response out back to the Kestrel. Then the Kestrel sends back the response to the client.
 
 But Kestrel does'nt support some of the advance features that are required on the internet these days. For Example:
 Load Balancing,
@@ -101,3 +101,44 @@ Based on the above format we can understand the structure of our HTTP Response.
 - Server Error: Server side runtime error. It is 500 Internal server error.
 
 ### How can you send this status code from your server side code?
+
+Headers is a dictonary in which we can add key value pairs.
+In general the keys should not contain any spaces but the vaules can contain spaces.
+
+## HTTP Request
+
+It is a message that is sent from the browser to server.
+HTTP Request format
+
+<!--
+Method Url HTTP/1.1
+key: value;
+key: value;
+
+Request Body
+...
+...
+-->
+
+Method: GET, POST, PUT and DELETE
+Url: is used to locate any particular information on the server.
+Then we have HTTP version.
+That is currently 1.1( You can configure and unable HTTP version 2 and 3 optionally)
+
+## How can you send values from the browser to server?
+
+By using query strings
+
+## Query String
+
+Query string is the syntax where you can send the parameter value from the request to the server means from the browser to server, along with the request.
+
+In a URL for example(/dashboard?id=1) the right hand side is the query string (key value pairs) and the left hand side of the '?' is the Url path.
+
+The difference between GET and POST will be the
+that GET will not have any body, while the POST request will have body attached to it.
+
+### HTTP Request Headers
+
+Request headers are generally information to the server.
+Request headers are the way how the browser talks to the server.
